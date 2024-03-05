@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 function LoginComponent() {
-  const [userName, setUserName] = useState("");
-  const [passwonrd, setPassword] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes enviar los datos del formulario a tu backend o hacer lo que necesites
-    console.log("Name:", userName);
-    console.log("Password:", passwonrd);
+    console.log("Name:", username);
+    console.log("Password:", password);
   };
 
   return (
@@ -21,24 +25,32 @@ function LoginComponent() {
         className="mt-10 flex flex-col text-lg items-center w-screen"
         onSubmit={handleSubmit}
       >
-        <label className="text-lg mt-5">
+        <div className="relative">
           <input
-            className="rounded-md bg-gray-100 w-96 h-10"
+            className="rounded-md bg-gray-100 w-96 h-10 pl-10"
             type="text"
-            value={userName}
+            value={username}
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
           />
-        </label>
-        <label className="mt-5 text-lg">
+          <FontAwesomeIcon
+            icon={faUser}
+            className="absolute left-3 top-3 text-gray-400"
+          />
+        </div>
+        <div className="relative mt-5">
           <input
-            className="rounded-md bg-gray-100 w-96 h-10"
-            type="email"
+            className="rounded-md bg-gray-100 w-96 h-10 pl-10"
+            type="text"
+            value={password}
             placeholder="Password"
-            value={passwonrd}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
+          <FontAwesomeIcon
+            icon={faLock}
+            className="absolute left-3 top-3 text-gray-400"
+          />
+        </div>
         <button
           className="mt-10 rounded-md w-60 h-16 mb-5 bg-violet-500 text-white"
           onPress
@@ -49,15 +61,17 @@ function LoginComponent() {
       </form>
       <p className="mt-10">Login whith Others</p>
       <button
-        className="mt-10 rounded-md border border-white-500 w-60 h-10"
+        className="mt-5 rounded-md border border-white-500 w-60 h-10"
         type="submit"
       >
+        <FontAwesomeIcon icon={faGoogle} className="mr-5" />
         Login with Google
       </button>
       <button
-        className="mt-10 rounded-md border border-white-500 w-60 h-10"
+        className="mt-5 rounded-md border border-white-500 w-60 h-10 lg:mb-5"
         type="submit"
       >
+        <FontAwesomeIcon icon={faFacebook} className="mr-5" />
         Login with Facebook
       </button>
     </div>
