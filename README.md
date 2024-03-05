@@ -1,5 +1,5 @@
 # Login-Page-UI-Desing
-Landing-Page-UI-Design with ViteJS and Tailwind
+Login-Page-UI-Design with ViteJS and Tailwind
 
 Responsive:
 
